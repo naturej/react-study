@@ -19,7 +19,7 @@ const Cats = () => {
     }
     fetchList();
   }, [currentPage]);
-  if (!cats) {
+  if (!cats) { 
     return null;
   }
 
