@@ -1,0 +1,24 @@
+.backBtn {
+  all: unset;
+  position:fixed;
+  top:0;
+  left:calc(50vw - 360px);
+  z-index: 999;
+  width:60px;
+  height:60px;
+  text-align: center;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.CatDetail {
+  .Thumb {
+    img {
+      width:100%;
+    }
+  }
+}

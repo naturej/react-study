@@ -1,0 +1,32 @@
+@import "/src/css/Reset.scss";
+
+.App {
+  position:relative;
+  width: 720px;
+  height:1000px;
+  margin:0 auto;
+  background: #f0f0f0;
+  
+  .Header {
+    height:60px;
+    width:720px;
+
+    .Nav {
+      position:fixed;
+      top:0;
+      z-index:100;
+      width:720px;
+      height:60px;
+      left:calc(50vw - 360px);
+      right:auto;
+      background:#fff;
+      text-align: center;
+
+      li {
+        display:inline-block;
+        line-height:60px;
+        padding:0 10px;
+      }
+    }
+  }
+}
