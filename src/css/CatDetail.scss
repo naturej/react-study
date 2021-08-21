@@ -2,7 +2,7 @@
   all: unset;
   position:fixed;
   top:0;
-  left:calc(50vw - 360px);
+  left:calc(50% - 360px);
   z-index: 999;
   width:60px;
   height:60px;
@@ -19,6 +19,17 @@
   .Thumb {
     img {
       width:100%;
+    }
+  }
+  .Info {
+    padding:15px;
+    line-height:30px;
+
+    .ability {
+      .star-ratings {
+        line-height:1;
+        vertical-align: middle;
+      }
     }
   }
 }

@@ -1,4 +1,6 @@
 import '../css/CatDetail.scss'
+// import ReactStars from "react-rating-stars-component"
+import StarRatings from "react-star-ratings"
 import { useEffect, useState } from 'react';
 import { getCatDetail } from '../utils/api';
 
@@ -21,11 +23,13 @@ const CatDetail = (props) => {
           <span className="Thumb">
               <img className="Image" src={cat.url ? cat.url : 'https://http.cat/404'} />
             </span>
-          <p>name : {cat.breeds[0].name}</p>
-          <p>origin : {cat.breeds[0].origin}</p>
-          <p>child friendly : {cat.breeds[0].child_friendly}</p>
-          <p>dog friendly : {cat.breeds[0].dog_friendly}</p>
-          <p>energy level : {cat.breeds[0].energy_level}</p>
+          <div className="Info">
+            <div>name : {cat.breeds[0].name}</div>
+            <div>origin : {cat.breeds[0].origin}</div>
+            <div className="ability"><span>energy level : </span><StarRatings className="star" rating={cat.breeds[0].energy_level} starDimension="20px" starSpacing="2px" /></div>
+            <div className="ability"><span>child friendly : </span><StarRatings className="star" rating={cat.breeds[0].child_friendly} starDimension="20px" starSpacing="2px" /></div>
+            <div className="ability"><span>dog friendly : </span><StarRatings className="star" rating={cat.breeds[0].dog_friendly} starDimension="20px" starSpacing="2px" /></div>
+          </div>
         </div>
       ))}
     </div>
