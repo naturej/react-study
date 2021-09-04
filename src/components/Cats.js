@@ -2,12 +2,13 @@ import '../css/CatList.scss';
 import { useEffect, useState } from 'react';
 import { getCatBreeds } from '../utils/api';
 import QuickButtonGroup from './QuickButtonGroup';
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const Cats = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [cats, setCats] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useLocalStorage('favorites', [])
 
   useEffect(() => {
     async function fetchList() {
@@ -23,6 +24,10 @@ const Cats = () => {
     return null;
   }
 
+  const addFavorite = (id) => {
+  setFavorites(favorites.concat(id))
+  }
+
   return (
     <div className="CatWrap">
       <ul className="Cats">
@@ -34,7 +39,7 @@ const Cats = () => {
               </span>
               {/* <span className="Name">{cat.name}</span> */}
             {/* </a> */}
-            <QuickButtonGroup id={cat.id}/>
+            <QuickButtonGroup addFavorite={addFavorite} id={cat.id}/>
           </li>
         ))}
       </ul>

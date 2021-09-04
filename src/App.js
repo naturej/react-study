@@ -5,6 +5,8 @@ import { Integrations } from '@sentry/tracing'
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Favorite from './pages/Favorite';
+import Mypage from './pages/Mypage';
+import CatReg from './pages/CatReg';
 import Detail from './pages/Detail';
 
 const sentryDSN = 'https://2a7ed4343cb44cef98b3d1a79551843d@o947482.ingest.sentry.io/5896861'
@@ -25,6 +27,9 @@ const Navigation = () => {
         <li>
           <Link to="/favorite">Favorite</Link>
         </li>
+        <li>
+          <Link to="/Mypage">Mypage</Link>
+        </li>
       </ul>
     </div>
   )
@@ -38,6 +43,8 @@ function App() {
         <Switch>
           <Route exact path ='/' component={Home}/>
           <Route exact path ='/favorite' component={Favorite}/>
+          <Route exact path ='/mypage' component={Mypage}/>
+          <Route exact path ='/catreg' component={CatReg}/>
           <Route exact path ='/detail/:catid' component={Detail}/>
         </Switch>
       </main>
