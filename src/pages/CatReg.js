@@ -4,7 +4,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CatReg = () => {
   
-  const [usercat, setUsercat] = useLocalStorage('usercat',[]);
+  const [usercat, setUsercat] = useLocalStorage('usercat', []);
   const [catName, setCatName] = useState('');
   const [breed, setBreed] = useState('품종1');
   const [url, setUrl] = useState('');
@@ -17,15 +17,18 @@ const CatReg = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(catName);
-    console.log(breed);
-    console.log(url);
-    console.log(desc);
-    console.log(country);
-    console.log(lifespan);
-    console.log(hair);
     
-    const nextusercat = {
+    // const nextusercat = {
+    //   catName: catName,
+    //   breed: breed,
+    //   url: url,
+    //   desc: desc,
+    //   country: country,
+    //   lifespan: lifespan,
+    //   hair: hair
+    // }
+    
+    setUsercat(usercat.concat({
       catName: catName,
       breed: breed,
       url: url,
@@ -33,9 +36,7 @@ const CatReg = () => {
       country: country,
       lifespan: lifespan,
       hair: hair
-    }
-    
-    setUsercat(nextusercat);
+    }));
 
     alert('등록이 완료되었습니다.');
     history.push('/mypage');
