@@ -1,6 +1,20 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CatReg = () => {
+  
+  const [usercat, setUsercat] = useLocalStorage('usercat',[]);
+  const [catName, setCatName] = useState('');
+  const [breed, setBreed] = useState('품종1');
+  const [url, setUrl] = useState('');
+  const [desc, setDesc] = useState('');
+  const [country, setCountry] = useState('국가1');
+  const [lifespan, setLifespan] = useState('');
+  const [hair, setHair] = useState('장모');
+  
+  const history = useHistory();
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log(catName);
@@ -10,15 +24,22 @@ const CatReg = () => {
     console.log(country);
     console.log(lifespan);
     console.log(hair);
-  };
+    
+    const nextusercat = {
+      catName: catName,
+      breed: breed,
+      url: url,
+      desc: desc,
+      country: country,
+      lifespan: lifespan,
+      hair: hair
+    }
+    
+    setUsercat(nextusercat);
 
-  const [catName, setCatName] = useState('');
-  const [breed, setBreed] = useState('품종1');
-  const [url, setUrl] = useState('');
-  const [desc, setDesc] = useState('');
-  const [country, setCountry] = useState('국가1');
-  const [lifespan, setLifespan] = useState('');
-  const [hair, setHair] = useState('장모');
+    alert('등록이 완료되었습니다.');
+    history.push('/mypage');
+  };
 
   return (
     <main>
